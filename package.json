@@ -1,0 +1,44 @@
+{
+  "name": "reactist",
+  "description": "A Command Line Interface tool that automate workflow when your working with React.js project",
+  "version": "0.0.2",
+  "main": "index.js",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha -R spec '**/__tests__/**/*-test.js'"
+  },
+  "bin": {
+    "react": "bin/react-cli.js"
+  },
+  "author": {
+    "name": "KimcCoding",
+    "email": "jeokrang@gmail.com",
+    "url": "http://huns.me"
+  },
+  "bugs": {
+    "url": "https://github.com/CoderK/reactist/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderK/reactist.git"
+  },
+  "license": "MIT",
+  "engines": { "node": ">= 5.7.0" },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "inquirer": "^1.0.2",
+    "jsonfile": "^2.3.0",
+    "prompt": "^1.0.0",
+    "shelljs": "^0.7.0"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "react-cli",
+    "redux-cli"
+  ]
+}
