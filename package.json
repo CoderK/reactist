@@ -5,7 +5,7 @@
   "main": "index.js",
   "preferGlobal": true,
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha -R spec '**/__tests__/**/*-test.js'"
+    "test": "node ./node_modules/mocha/bin/mocha --opts './mocha.opts' 'src/!(ingredients)/**/__tests__/**/*-test.js'"
   },
   "bin": {
     "react": "bin/react-cli.js"

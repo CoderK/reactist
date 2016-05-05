@@ -1,18 +1,20 @@
 'use strict';
 
 module.exports = {
-    react: [
-        'npm install --save --progress=false react',
-        'npm install --save-dev --progress=false webpack webpack-dev-server',
-        'npm install --save-dev --progress=false babel babel-cli babel-polyfill babel-loader babel-preset-react babel-preset-es2015 babel-preset-airbnb'
-    ],
-    client: [
-        'npm install --save --progress=false react-dom'
-    ],
-    redux: [
-        'npm install --save --progress=false redux react-redux',
-        'npm install --save-dev --progress=false redux-devtools'
-    ],
+    default: {
+        react: [
+            'npm install --save --progress=false react',
+            'npm install --save-dev --progress=false webpack webpack-dev-server',
+            'npm install --save-dev --progress=false babel babel-cli babel-polyfill babel-loader babel-preset-react babel-preset-es2015 babel-preset-airbnb'
+        ],
+        client: [
+            'npm install --save --progress=false react-dom'
+        ],
+        redux: [
+            'npm install --save --progress=false redux react-redux',
+            'npm install --save-dev --progress=false redux-devtools'
+        ]
+    },
     test: {
         reactTestUtils: [
             'npm install --save-dev --progress=false react-addons-test-utils'

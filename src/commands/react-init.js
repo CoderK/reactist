@@ -1,7 +1,7 @@
 'use strict';
 
 const depsMap = require('../builder/deps-map.js');
-const recipieBuilder = require('../builder/recipe-builder.js');
+const recipieBuilder = require('../builder/install-builder.js');
 const projectBuilder = require('../builder/project-builder.js');
 
 module.exports = function init(program, inquirer) {
@@ -19,7 +19,7 @@ module.exports = function init(program, inquirer) {
                 projectBuilder.generateProject(
                     name,
                     answers,
-                    recipieBuilder.genDepsRecipe(depsMap, answers)
+                    recipieBuilder.generateInstallList(depsMap, answers)
                 );
             }).catch((err) => {
                 console.log(err.stack);
