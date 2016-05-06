@@ -5,9 +5,9 @@ require('chai').should();
 const depsMap = require('../deps-map.js');
 const recipeBuilder = require('../install-builder.js');
 
-describe('install-builder', function() {
-    describe('when the user request to generate install list', function () {
-        it('should return default install list.', function () {
+describe('install-builder', () => {
+    describe('when the user request to generate install list', () => {
+        it('should return default install list.', () => {
             // given
             let expectedList = makeInstListAsDefault(depsMap);
 
@@ -18,12 +18,10 @@ describe('install-builder', function() {
             actualList.should.be.eql(expectedList);
         });
 
-        describe('and want to a unit test environment to be installed', function () {
-            it('should return install list including list for unit test tools.', function () {
+        describe('and want to a unit test environment to be installed', () => {
+            it('should return install list including list for unit test tools.', () => {
                 // given
-                let options = {
-                    shouldInstallUnitTest: true
-                };
+                let options = { shouldInstallUnitTest: true };
                 let expectedList = makeInstListAsDefault(depsMap).concat(makeInstListForUnitTest(depsMap));
 
                 // when
@@ -34,12 +32,10 @@ describe('install-builder', function() {
             });
         });
 
-        describe('and want to a unit test environment not to be installed', function () {
-            it('should return default install list.', function () {
+        describe('and want to a unit test environment not to be installed', () => {
+            it('should return default install list.', () => {
                 // given
-                let options = {
-                    shouldInstallUnitTest: false
-                };
+                let options = { shouldInstallUnitTest: false };
                 let expectedList = makeInstListAsDefault(depsMap);
 
                 // when
@@ -50,6 +46,8 @@ describe('install-builder', function() {
             });
         });
     });
+
+
 
     function makeInstListForUnitTest(depsMap) {
         const testMap = depsMap.test;

@@ -1,8 +1,9 @@
 'use strict';
 
-const depsMap = require('../builder/deps-map.js');
-const recipieBuilder = require('../builder/install-builder.js');
-const projectBuilder = require('../builder/project-builder.js');
+const depsMap = require('../core/deps-map.js');
+const recipieBuilder = require('../core/install-builder.js');
+const projectBuilder = require('../core/project-builder.js');
+const logger = require('../log/logger.js');
 
 module.exports = function init(program, inquirer) {
     program
@@ -16,13 +17,15 @@ module.exports = function init(program, inquirer) {
                     message: 'Will you write unit tests?'
                 }
             ]).then((answers) => {
-                projectBuilder.generateProject(
+                logger.sayHello();
+                projectBuilder.createProject(
                     name,
                     answers,
                     recipieBuilder.generateInstallList(depsMap, answers)
                 );
+                logger.sayGoodbye();
             }).catch((err) => {
-                console.log(err.stack);
-            })
+                logger.printError(err.stack);
+            });
         });
 };
