@@ -2,7 +2,7 @@
 
 ## What is Reactist?
 
-Reactist is a Command Line Interface tool that automate workflow when your working with React.js project. This project is composed of the following things:
+Reactist is a Command Line Interface tool that automates React-based project's workflow. This project is composed of:
 
 React
 
@@ -39,7 +39,7 @@ npm install reactist -g
 
 ### Initializing
 
-Just enter ```react init [app-name]``` in a console, then Reactist create react project *[app-name]* directory and set up react + redux + babel + webpack. If you answer *"Will you write unit tests?"* with Y(default is Y), mocha + karma + enzyme is also being installed automatically.
+Just enter ```react init [app-name]``` in a console, then Reactist will create a react project *[app-name]* directory and set up react + redux + babel + webpack. If you answer *"Will you write unit tests?"* with Y(default is Y), mocha + karma + enzyme <will be also> installed.
 
 
 ```
@@ -58,7 +58,7 @@ Wrote to /Users/KimCoding/Workspace/my-app/package.json:
 .
 .
 ```
-npm install is too slow, so it may be a long time before npm dependenceis is downloaded. When download process is completed, you can see that a project has been created.
+It may take a long time to get npm dependenceis. When it's completed, you will see the project created.
 
 ```
 npm WARN my-app@1.0.0 No description
@@ -66,7 +66,7 @@ npm WARN my-app@1.0.0 No repository field.
 .
 .
 .
-It has been finished, enjoy your react...!!
+It has been finished, enjoy your react <environment를 적으면 어떨까 싶네요>...!!
 
 $~/> cd mya-pp
 $~/my-app> ls
@@ -78,7 +78,7 @@ $~/myapp>
 
 ## npm task
 
-A project created by Reactist uses npm scripts to manage tasks. The following are descriptions about each task.
+A project created by Reactist uses npm scripts to manage tasks. The followings are descriptions about each task.
 
 #### start
 
@@ -110,8 +110,8 @@ Run unit tests powered by Mocha and Karma with the following npm command:
 $ npm test
 ```
 
-When you execute above, Karma run all unit tests with phantomjs as default. 
-If you want to test on browser(chrome default) environment, you can use this command.
+Karma runs all unit tests with phantomjs as default.
+If you want to run tests on browser(default is chrome) environment, you can use this command.
 
 ```shell
 $ npm run test-debug
@@ -145,7 +145,7 @@ comming soon...
 
 - add flux-utils
 - add jest, jasmine
-- add some npm task to reastist command(run, build, deploy, test, coverage)
+- add some npm tasks to reastist command(run, build, deploy, test, coverage)
 
 ## License
 
