@@ -2,9 +2,10 @@
 
 require('chai').should();
 
+const shell = require('shelljs');
 const rewire = require("rewire");
 const sinon = require('sinon');
-const projectBuilder = rewire('../project-builder.js');
+const projectBuilder = rewire('../project-service.js');
 const config = require('../../config.js');
 
 describe('project-builder', () => {
@@ -46,8 +47,8 @@ describe('project-builder', () => {
             projectBuilder.createProject(projectName, ANY_OPT, installList);
 
             // then
-            global.mkdir.calledWith(projectName).should.be.true;
-            global.cd.calledWith(projectName).should.be.true;
+            shell.mkdir.calledWith(projectName).should.be.true;
+            shell.cd.calledWith(projectName).should.be.true;
         });
 
         it('should install npm dependencies', () => {
@@ -68,7 +69,7 @@ describe('project-builder', () => {
                 projectBuilder.createProject(projectName, NULL_OPT, installList);
 
                 // then
-                global.cp.calledWith('-R', config.REDUX_SCAFFOLD_PATH, '.').should.be.true;
+                shell.cp.calledWith('-R', config.REDUX_SCAFFOLD_PATH, '.').should.be.true;
             });
 
             it('should replace scripts of current package.json with scripts of reactist build scripts', () => {
@@ -113,7 +114,7 @@ describe('project-builder', () => {
                 projectBuilder.createProject(projectName, TEST_DISALED_OPT, installList);
 
                 // then
-                global.cp.calledWith('-R', config.REDUX_SCAFFOLD_PATH, '.').should.be.true;
+                shell.cp.calledWith('-R', config.REDUX_SCAFFOLD_PATH, '.').should.be.true;
             });
 
             it('should replace scripts of current package.json with scripts of reactist build scripts', () => {
@@ -158,8 +159,8 @@ describe('project-builder', () => {
                 projectBuilder.createProject(projectName, TEST_ENABLED_OPT, installList);
 
                 // then
-                global.cp.calledWith('-R', config.REDUX_SCAFFOLD_PATH, '.').should.be.true;
-                global.cp.calledWith('-R', config.REDUX_SAMPLE_TEST_PATH, '.').should.be.true;
+                shell.cp.calledWith('-R', config.REDUX_SCAFFOLD_PATH, '.').should.be.true;
+                shell.cp.calledWith('-R', config.REDUX_SAMPLE_TEST_PATH, '.').should.be.true;
             });
 
             it('should replace scripts of current package.json with reactist build scripts including test', () => {
@@ -216,10 +217,10 @@ describe('project-builder', () => {
 
     function setupGlobalMock() {
         sandboxSinon = sinon.sandbox.create();
-        sandboxSinon.stub(global, 'mkdir', () => {});
-        sandboxSinon.stub(global, 'cp', () => {});
-        sandboxSinon.stub(global, 'cd', () => {});
-        sandboxSinon.stub(global, 'exec', (cmd) => {
+        sandboxSinon.stub(shell, 'mkdir', () => {});
+        sandboxSinon.stub(shell, 'cp', () => {});
+        sandboxSinon.stub(shell, 'cd', () => {});
+        sandboxSinon.stub(shell, 'exec', (cmd) => {
             if (cmd.indexOf('npm install') > -1) {
                 actualInstallList.push(cmd);
             }

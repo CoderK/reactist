@@ -1,33 +1,32 @@
 'use strict';
 
-require('shelljs/global');
-
 /*
 The reason that I declared this variables with let is to see:
 https://github.com/jhnns/rewire/issues/79
  */
+let shell = require('shelljs');
 let fs = require('fs');
 let jsonfile = require('jsonfile');
 const config = require('../config.js');
 
 function createWorkingDir(name) {
     if (name) {
-        mkdir(name);
-        cd(name);
+        shell.mkdir(name);
+        shell.cd(name);
     }
 
-    exec('npm init -y');
+    shell.exec('npm init -y');
 }
 
 function installDeps(instList) {
-    instList.forEach((cmd) => exec(cmd));
+    instList.forEach((cmd) => shell.exec(cmd));
 }
 
 function createScaffold(config, options) {
-    cp('-R', config.REDUX_SCAFFOLD_PATH, '.');
+    shell.cp('-R', config.REDUX_SCAFFOLD_PATH, '.');
 
     if (options && options.shouldInstallUnitTest) {
-        cp('-R', config.REDUX_SAMPLE_TEST_PATH, '.');
+        shell.cp('-R', config.REDUX_SAMPLE_TEST_PATH, '.');
     }
 }
 

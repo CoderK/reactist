@@ -145,7 +145,6 @@ comming soon...
 
 - add flux-utils
 - add jest, jasmine
-- add some npm tasks to reastist command(run, build, deploy, test, coverage)
 
 ## License
 

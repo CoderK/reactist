@@ -3,7 +3,7 @@
 require('chai').should();
 
 const depsMap = require('../deps-map.js');
-const recipeBuilder = require('../install-builder.js');
+const recipeBuilder = require('../install-list-generator.js');
 
 describe('install-builder', () => {
     describe('when the user request to generate install list', () => {

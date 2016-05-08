@@ -1,7 +1,7 @@
 {
   "name": "reactist",
   "description": "A Command Line Interface tool that automate workflow when your working with React.js project",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "index.js",
   "preferGlobal": true,
   "scripts": {

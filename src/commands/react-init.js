@@ -1,8 +1,8 @@
 'use strict';
 
-const depsMap = require('../core/deps-map.js');
-const recipieBuilder = require('../core/install-builder.js');
-const projectBuilder = require('../core/project-builder.js');
+const depsMap = require('../deps/deps-map.js');
+const installBuilder = require('../deps/install-list-generator.js');
+const projectService = require('../service/project-service.js');
 const logger = require('../log/logger.js');
 
 module.exports = function init(program, inquirer) {
@@ -18,10 +18,10 @@ module.exports = function init(program, inquirer) {
                 }
             ]).then((answers) => {
                 logger.sayHello();
-                projectBuilder.createProject(
+                projectService.createProject(
                     name,
                     answers,
-                    recipieBuilder.generateInstallList(depsMap, answers)
+                    installBuilder.generateInstallList(depsMap, answers)
                 );
                 logger.sayGoodbye();
             }).catch((err) => {
