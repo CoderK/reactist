@@ -135,7 +135,7 @@ $ npm run deploy
 
 ## Contributing
 
-comming soon...
+coming soon...
 
 ## Authors
 
