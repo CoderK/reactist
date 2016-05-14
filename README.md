@@ -146,6 +146,15 @@ comming soon...
 - add flux-utils
 - add jest, jasmine
 
+## Release Notes
+
+#### 0.1.1
+- fix scaffolds structure
+- add redux-devtools setting
+
+#### 0.1.0
+- init
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
